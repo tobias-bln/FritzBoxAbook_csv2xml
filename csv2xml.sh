@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# csv2xml.sh <path to csv-abook file>
+
 ABOOK=$1
 TMP=/tmp/abook.tmp
 
@@ -15,27 +17,24 @@ do
 	# -- begin TelWork--
 	TEL=`echo $line | cut -d "," -f 2`
 	if [ "$TEL" != "" ] ; then
-		#echo "<number type=\"work\" quickdial=\"\" vanity=\"\" prio=\"\" id=\"$COUNT\">$TEL</number>" >> abook.xml
 		TEL1=`echo "<number type=\"work\" id=\"$COUNT\">$TEL</number>"`
 		COUNT=$((COUNT+1))
 	else
 		TEL1=""
 	fi
 	# --
-	# -- begin TelWork--
+	# -- begin TelHome--
 	TEL=`echo $line | cut -d "," -f 3`
 	if [ "$TEL" != "" ] ; then
-		#echo "<number type=\"home\" quickdial=\"\" vanity=\"\" prio=\"\" id=\"$COUNT\">$TEL</number>" >> abook.xml
 		TEL2=`echo "<number type=\"home\" id=\"$COUNT\">$TEL</number>"`
 		COUNT=$((COUNT+1))
 	else
 		TEL2=""
 	fi
 	# --
-	# -- begin TelWork--
+	# -- begin TelMobile--
 	TEL=`echo $line | cut -d "," -f 4`
 	if [ "$TEL" != "" ] ; then
-		#echo "<number type=\"mobile\" quickdial=\"\" vanity=\"\" prio=\"\" id=\"$COUNT\">$TEL</number>" >> abook.xml
 		TEL3=`echo "<number type=\"mobile\" id=\"$COUNT\">$TEL</number>"`
 		COUNT=$((COUNT+1))
 	else
