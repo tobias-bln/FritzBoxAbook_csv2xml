@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# convert csv-export (Moz. Thunderbird) to FritzBox xml-abook
 # csv2xml.sh <path to csv-abook file>
 
 ABOOK=$1
